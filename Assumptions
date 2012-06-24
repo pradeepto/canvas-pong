@@ -1,0 +1,12 @@
+1. I wasn't sure what you meant by "2 square wall". So I just have two walls on
+each side of the canvas and the ball bounces of the walls. There is unfortunately
+no real physics. It just bounces of the walls ( and also the top/botton of the
+canvas.) Realy not sure if my assumptions are correct here.
+
+2. No browser capability detection
+
+3. Tested on Firefox 13 and Chrome 19 - OS X Lion.
+
+4. I couldn't find a way to draw borderless shapes using Canvas API.
+Hence I update/repaint the whole canvas at each interval. Ideally, if I could
+I would updated/repainted only the ball bit on canvas.

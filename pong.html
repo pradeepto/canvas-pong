@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+ <head>
+  <title>Pong</title>
+  <script>
+   function game() {
+     var canvas = document.getElementById("canvas");
+     var context = canvas.getContext("2d");
+     var boardLeft = 20;
+     var boardRight = 779;
+     var ballx = 40;
+     var bally = 400;
+     var radius = 20;
+     var stepx = 2;
+     var stepy = 1;
+
+     function gameLoop() {
+        //Clear the screen. Seriously? Why?
+       context.clearRect(0,0,canvas.width,canvas.height);
+
+       //The walls
+       context.fillStyle = "#000000";
+       context.moveTo(0,0);
+       context.fillRect(0,0,20,500);
+       context.moveTo(780,0);
+       context.fillRect(780,0,20,500);
+
+       //The ball
+       context.beginPath();
+       context.arc(ballx,bally,radius,0,Math.PI*2,true);
+       context.fillStyle = "#0000FF";
+       context.fill();
+       if (ballx < boardLeft + radius  || ballx > boardRight - radius ) {
+          stepx = -stepx;
+       }
+
+       if (bally > canvas.height - radius || bally < radius) {
+          stepy = -stepy;
+       }
+       ballx = ballx + stepx;
+       bally = bally + stepy
+     }
+     setInterval(gameLoop, 10);
+   }
+  </script>
+ </head>
+ <body onload="game();">
+  <div>
+   <canvas id="canvas" width="800" height="500">
+   This browser doesn't support HTML5 Canvas API.
+   </canvas>
+    </div>
+ </body>
+</html>
+
