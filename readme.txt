@@ -1,3 +1,1 @@
-pong
-foo
-doo
+This is a proper readme.
